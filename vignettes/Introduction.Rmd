@@ -1,5 +1,7 @@
 ---
 title: "importfx"
+author: "Fendi Tsim"
+date: "2023-08-08"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{introduction}
