@@ -372,8 +372,7 @@ and <code>foo3</code>) from functions.R.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">import</span>(<span class="at">file =</span> <span class="st">&quot;functions.R&quot;</span>, <span class="at">only =</span> <span class="fu">c</span>(<span class="st">&quot;foo1&quot;</span>, <span class="st">&quot;foo3&quot;</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co"># Print what exists in Global Environment</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; foo1 : function ()  </span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; foo2 : function ()  </span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; foo3 : function ()</span></span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; foo3 : function ()</span></span></code></pre></div>
 <p>Thus, <code>foo1</code> and <code>foo3</code> are imported in the
 Global environment.</p>
 </div>
