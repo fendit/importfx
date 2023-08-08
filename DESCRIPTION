@@ -13,5 +13,6 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/fendit/importfx
 BugReports: https://github.com/fendit/importfx/issues
 License: MIT + file LICENSE
