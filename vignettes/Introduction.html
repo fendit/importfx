@@ -373,8 +373,7 @@ and <code>foo3</code>) from functions.R.</p>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co"># Print what exists in Global Environment</span></span>
 <span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; foo1 : function ()  </span></span>
 <span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; foo2 : function ()  </span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; foo23 : function ()  </span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; foo3 : function ()</span></span></code></pre></div>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; foo3 : function ()</span></span></code></pre></div>
 <p>Thus, <code>foo1</code> and <code>foo3</code> are imported in the
 Global environment.</p>
 </div>
@@ -384,37 +383,34 @@ Global environment.</p>
 except <code>foo1</code> and <code>foo3</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">import</span>(<span class="at">file =</span> <span class="st">&quot;functions.R&quot;</span>, <span class="at">except =</span> <span class="fu">c</span>(<span class="st">&quot;foo1&quot;</span>, <span class="st">&quot;foo3&quot;</span>))</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co"># Print what exists in Global Environment</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; foo2 : function ()  </span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; foo23 : function ()</span></span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; foo2 : function ()</span></span></code></pre></div>
 <p>Thus, only <code>foo2</code> is imported in the Global
 environment.</p>
-</div>
-<div id="import-all-functions" class="section level3">
-<h3><strong>Import all functions</strong></h3>
-<p>The following command shows imports all functions from functions.R
-like <code>source(file = &quot;functions.R&quot;)</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">import</span>(<span class="at">file =</span> <span class="st">&quot;functions.R&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co"># Print what exists in Global Environment</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; foo1 : function ()  </span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; foo2 : function ()  </span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; foo23 : function ()  </span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; foo3 : function ()</span></span></code></pre></div>
 </div>
 <div id="import-functions-that-do-not-exist" class="section level3">
 <h3><strong>Import functions that do not exist</strong></h3>
 <p>Running the following code shows an error message as function(s)
 imported do not exist.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">import</span>(<span class="at">file =</span> <span class="st">&quot;functions.R&quot;</span>, <span class="at">only =</span> <span class="fu">c</span>(<span class="st">&quot;foo1&quot;</span>, <span class="st">&quot;foo03&quot;</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; Error: foo03 could not be found in functions.R</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">import</span>(<span class="at">file =</span> <span class="st">&quot;functions.R&quot;</span>, <span class="at">only =</span> <span class="fu">c</span>(<span class="st">&quot;foo1&quot;</span>, <span class="st">&quot;foo03&quot;</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; Error: foo03 could not be found in functions.R</span></span></code></pre></div>
 <p>An error message is displayed when importing specific functions
 unsuccessfully.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co"># Print what exists in Global Environment</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; foo1 : function ()  </span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt; foo2 : function ()  </span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; foo23 : function ()  </span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; foo3 : function ()</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co"># Print what exists in Global Environment</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; foo2 : function ()</span></span></code></pre></div>
 <p>Note that despite <code>foo1</code> is in functions.R, it is not
 imported in Global environment via above command.</p>
+<p>Remarks: <code>foo2</code> was imported by the command from previous
+section.</p>
+</div>
+<div id="import-all-functions" class="section level3">
+<h3><strong>Import all functions</strong></h3>
+<p>The following command shows imports all functions from functions.R
+like <code>source(file = &quot;functions.R&quot;)</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">import</span>(<span class="at">file =</span> <span class="st">&quot;functions.R&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">ls.str</span>()  <span class="co"># Print what exists in Global Environment</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt; foo1 : function ()  </span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; foo2 : function ()  </span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; foo3 : function ()</span></span></code></pre></div>
 </div>
 </div>
 

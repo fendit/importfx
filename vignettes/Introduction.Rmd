@@ -62,15 +62,6 @@ ls.str()  # Print what exists in Global Environment
 
 Thus, only `foo2` is imported in the Global environment.
 
-### **Import all functions**
-
-The following command shows imports all functions from functions.R like `source(file = "functions.R")`.
-
-```{r}
-import(file = "functions.R")
-ls.str()  # Print what exists in Global Environment
-```
-
 ### **Import functions that do not exist**
 
 Running the following code shows an error message as function(s) imported do not exist.
@@ -85,3 +76,14 @@ An error message is displayed when importing specific functions unsuccessfully.
 ls.str()  # Print what exists in Global Environment
 ```
 Note that despite `foo1` is in functions.R, it is not imported in Global environment via above command.
+
+Remarks: `foo2` was imported by the command from previous section. 
+
+### **Import all functions**
+
+The following command shows imports all functions from functions.R like `source(file = "functions.R")`.
+
+```{r}
+import(file = "functions.R")
+ls.str()  # Print what exists in Global Environment
+```
