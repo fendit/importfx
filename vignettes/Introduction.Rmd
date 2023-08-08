@@ -1,0 +1,87 @@
+---
+title: "importfx"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## **Introduction**
+
+`importfx` package works similar to import function in Python.
+
+At the start of a R script, user can decide which function(s) should be included or excluded when importing to the environment from another R script.
+
+**Note that it is recommended to use this package at the start of running a R script (similar to Python) to prevent any current function objects in the environment being removed during importing.**
+
+## **Examples**
+
+Suppose a .R file (`functions.R`) in current directory contains following functions (`foo1`, `foo2`, `foo3`):
+
+```{r}
+file.create("functions.R")  # Create a R script called 'functions.R'
+writeLines(text = "foo1 <- function(){}\nfoo2 <- function(){}\nfoo3 <- function(){}", 
+           con = file("functions.R")
+           )
+close(file("functions.R"))
+```
+
+Loading `importfx` package:
+
+```{r setup}
+library(importfx)
+```
+
+### **Import specific functions**
+
+The following command imports specific functions (`foo1` and `foo3`) from functions.R.
+
+```{r}
+import(file = "functions.R", only = c("foo1", "foo3"))
+ls.str()  # Print what exists in Global Environment
+```
+
+Thus, `foo1` and `foo3` are imported in the Global environment.
+
+### **Import all functions except specific functions**
+
+The following command shows imports all functions from functions.R except `foo1` and `foo3`.
+
+```{r}
+import(file = "functions.R", except = c("foo1", "foo3"))
+ls.str()  # Print what exists in Global Environment
+```
+
+Thus, only `foo2` is imported in the Global environment.
+
+### **Import all functions**
+
+The following command shows imports all functions from functions.R like `source(file = "functions.R")`.
+
+```{r}
+import(file = "functions.R")
+ls.str()  # Print what exists in Global Environment
+```
+
+### **Import functions that do not exist**
+
+Running the following code shows an error message as function(s) imported do not exist.
+
+```{r echo='TRUE'}
+import(file = "functions.R", only = c("foo1", "foo03"))
+```
+
+An error message is displayed when importing specific functions unsuccessfully.
+
+```{r}
+ls.str()  # Print what exists in Global Environment
+```
+Note that despite `foo1` is in functions.R, it is not imported in Global environment via above command.

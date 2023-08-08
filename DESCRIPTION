@@ -1,0 +1,17 @@
+Package: importfx
+Title: Import Specific User-Defined Functions from Another R Script
+Version: 0.1.0
+Authors@R: 
+    person("Fendi", "Tsim", , "F.Tsim@wbs.ac.uk", role = c("aut", "cre"))
+Author: Fendi Tsim [aut, cre]
+Maintainer: Fendi Tsim <F.Tsim@wbs.ac.uk>
+Description: Importing specific user-defined functions from another R script at the start.
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+BugReports: https://github.com/fendit/importfx/issues
+License: MIT + file LICENSE
