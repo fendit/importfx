@@ -12,7 +12,7 @@ See the package vignette [here](https://htmlpreview.github.io/?https://github.co
 ### Downloading package
 Press the copy button below and paste the following command in your RStudio:
 ```
-devtools::install_github("fendit/importfx")
+devtools::install_github("fendit/importfx", build_vignettes = TRUE)
 ```
 
 ### Related resources
