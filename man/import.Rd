@@ -5,25 +5,27 @@
 \alias{importfunctions}
 \title{Import Specific User-Defined Functions from Another R Script}
 \usage{
-import(file = "", only = NULL, except = NULL, envir = .GlobalEnv)
+import(from = "", only = NULL, except = NULL, envir = parent.frame())
 }
 \arguments{
+\item{only}{Functions to be imported. Default is \code{NULL}.}
+
+\item{except}{Functions that are excluded when importing. Default is \code{NULL}.}
+
+\item{envir}{Environment where functions are imported to. See 'Details'.}
+
 \item{file}{Directory of R script that stores all user-defined functions.}
-
-\item{only}{Functions to be imported. Default is NULL.}
-
-\item{except}{Functions that are excluded when importing. Default is NULL.}
-
-\item{envir}{Environment where functions are imported to.}
 }
 \value{
 User-defined functions from another R script
 }
 \description{
-Works similar to import function from Python - user can decide which function(s)
-should be included or excluded when importing to the environment from another R script.
+Import functions from a R script based on user's preference (which function(s) are included or excluded when importing).
+}
+\details{
+Either \code{only} or \code{except} can contain values (names of functions to be imported or not) when importing.
 
-It is recommended to execute this function at the start of running current R script.
+Default value of \code{envir} is \code{\link[base]{parent.frame}}, which is the environment \code{import} was made.
 }
 \examples{
 \dontrun{
@@ -35,16 +37,16 @@ writeLines(text = "foo1 <- function(){}\nfoo2 <- function(){}\nfoo3 <- function(
 close(file("functions.R"))
 
 # Import all functions in functions.R
-import(file = "functions.R")
+import(from = "functions.R")
 ls.str()  # Print what exists in Global Environment
 # Import specific functions via functions.R (foo1 and foo3)
-import(file = "functions.R", only = c("foo1", "foo3"))
+import(from = "functions.R", only = c("foo1", "foo3"))
 ls.str()  # Print what exists in Global Environment
 # Import all functions in functions.R except foo1 and foo3
-import(file = "functions.R", except = c("foo1", "foo3"))
+import(from = "functions.R", except = c("foo1", "foo3"))
 ls.str()  # Print what exists in Global Environment
 # Running the following code shows an error message as function(s) imported do not exist
-import(file = "functions.R", only = c("foo1", "foo03"))
+import(from = "functions.R", only = c("foo1", "foo03"))
 # Error: foo03 could not be found in functions.R
 
 ls.str()  # Print what exists in Global Environment
