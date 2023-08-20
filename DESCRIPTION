@@ -1,6 +1,6 @@
 Package: importfx
 Title: Import Specific User-Defined Functions from Another R Script
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person("Fendi", "Tsim", , "F.Tsim@wbs.ac.uk", role = c("aut", "cre"))
 Author: Fendi Tsim [aut, cre]
