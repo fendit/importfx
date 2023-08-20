@@ -19,6 +19,5 @@ devtools::install_github("fendit/importfx", build_vignettes = TRUE)
 For a non-package version please visit this repo [link here](https://github.com/fendit/import-specific-functions)
 
 ### Remarks
-This package is different from existing ```import``` package (see [here](https://www.rdocumentation.org/packages/rio/versions/0.5.29/topics/import)) in terms of:
-- objects to be imported
-- which user-defined functions to be included or excluded when importing
+- This package is an alternative to existing ```import``` package (see [here](https://www.rdocumentation.org/packages/rio/versions/0.5.29/topics/import)), which provides more functionality than this package (in terms of import objects other than functions to the environment). While creating this package, I have neither reviewed nor consulted from the existing package. 
+- Both functions in this package produce unexpected results if there is a print/cat command with the word "function" as part of a string in R script that functions are imported from. Thus, use these functions with caution.
